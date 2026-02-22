@@ -7,7 +7,6 @@ def get_eg_cache_root():
     return root
 
 
-AUTHOR_EMAIL = "bdye22@m.fudan.edu.cn"
 # global paths
 CACHE_ROOT = get_eg_cache_root()
 DATASETS_ROOT = CACHE_ROOT / "datasets"
