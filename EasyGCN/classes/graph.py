@@ -51,11 +51,11 @@ class Graph(eg.Graph):
             N = len(self.nodes)
             nnz = len(row)
  
-            adj_list = [[] for _ in range(N)] # [优化] 存在优化的可能
+            adj_list = [[] for _ in range(N)] 
             for u, v in zip(row, col):
                 adj_list[u].append(v)
 
-            # --- 修改后的划分预处理 ---
+            
             idx_t = ctypes.c_int32
             xadj = (idx_t*(N+1))()      # shape: (N+1,)
             adjncy =  (idx_t*(nnz))()  # shape: (nnz,)
@@ -69,16 +69,15 @@ class Graph(eg.Graph):
                 xadj[i+1] = ptr
             
             _, parts = metis.part_graph({
-                'nvtxs': idx_t(N),  # 节点数
+                'nvtxs': idx_t(N), 
                 'ncon': idx_t(1),
                 'xadj': xadj,
                 'adjncy': adjncy,
-                'vwgt': None, # 节点权重
-                'vsize': None,  # 节点大小 默认 None
-                'adjwgt': adjwgt # 边权重
+                'vwgt': None,
+                'vsize': None, 
+                'adjwgt':
             }, nparts=nparts)
 
-            # 替代 concatenate 操作
             part_to_nodes = [[] for _ in range(nparts)]
             for idx, p in enumerate(parts):
                 part_to_nodes[p].append(idx)
@@ -96,11 +95,11 @@ class Graph(eg.Graph):
             )
             
             adj_gp_t = SparseTensor(
-                row=torch.tensor(col2, dtype=torch.long), # 交换：原来的 col2 变成 row
-                col=torch.tensor(row2, dtype=torch.long), # 交换：原来的 row2 变成 col
-                value=norm, # 对称归一化图中值不变；若为有向图需注意
+                row=torch.tensor(col2, dtype=torch.long), 
+                col=torch.tensor(row2, dtype=torch.long), 
+                value=norm,
                 sparse_sizes=(N, N),
-                is_sorted=False # 显式告诉它未排序，让它内部处理 CSR 排序
+                is_sorted=False
             )
 
             
