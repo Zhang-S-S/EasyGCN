@@ -4,7 +4,7 @@ setup(
     name="EasyGCN", 
     version="0.1.0",
     
-    author="Su-Su Zhang",
+    author="Anonymized author",
     description="A GNN extension project based on EasyGraph",
     
     packages=find_packages(),
