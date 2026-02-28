@@ -81,16 +81,16 @@ Result_Chart = {}
 
 def Show_Result(dataset_name, RR, All_total_train_time, All_epoch_times, All_forward_times, All_backward_times, peak_memory_mb, All_test_acc, ALL_f1):
     print("\n======= Result =======")
-    print(f"🔹 Framework: {BACKEND}")
-    print(f"🔹 Dataset: {dataset_name}")
-    print(f"🔥 total_time: {sum(All_total_train_time)/RR:.3f} 秒 ({[round(_, 3) for _ in All_total_train_time]})")
-    print(f"🔥 STD_time: {statistics.stdev(All_total_train_time):.3f} 秒")
-    print(f"⏩ Avg_epoch_time: {sum(All_epoch_times)/RR*1000:.3f} ms")
-    print(f"🔁 Avg_forward_time: {sum(All_forward_times)/RR*1000:.3f} ms")
-    print(f"↩️ Avg_backward_time: {sum(All_backward_times)/RR*1000:.3f} ms")
-    print(f"🎯 Accuracy: {sum(All_test_acc)/RR:.4f}")
-    print(f"🎯 STD_acc: {statistics.stdev(All_test_acc):.4f}")
-    print(f"🎯 F1-score: {sum(ALL_f1)/RR:.4f}")
+    print(f" Framework: {BACKEND}")
+    print(f" Dataset: {dataset_name}")
+    print(f" total_time: {sum(All_total_train_time)/RR:.3f} 秒 ({[round(_, 3) for _ in All_total_train_time]})")
+    print(f" STD_time: {statistics.stdev(All_total_train_time):.3f} 秒")
+    print(f" Avg_epoch_time: {sum(All_epoch_times)/RR*1000:.3f} ms")
+    print(f" Avg_forward_time: {sum(All_forward_times)/RR*1000:.3f} ms")
+    print(f" Avg_backward_time: {sum(All_backward_times)/RR*1000:.3f} ms")
+    print(f" Accuracy: {sum(All_test_acc)/RR:.4f}")
+    print(f" STD_acc: {statistics.stdev(All_test_acc):.4f}")
+    print(f" F1-score: {sum(ALL_f1)/RR:.4f}")
     Result_Chart[dataset_name] = {
         "Total_Train_Time": sum(All_total_train_time)/RR,
         "Std_Train_Time": statistics.stdev(All_total_train_time),
