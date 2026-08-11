@@ -75,7 +75,7 @@ class Graph(eg.Graph):
                 'adjncy': adjncy,
                 'vwgt': None,
                 'vsize': None, 
-                'adjwgt':
+                'adjwgt': adjwgt
             }, nparts=nparts)
 
             part_to_nodes = [[] for _ in range(nparts)]
