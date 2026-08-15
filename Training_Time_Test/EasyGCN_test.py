@@ -20,7 +20,7 @@ from txtReader import TxtGraphReader
 from torch_geometric.datasets import Coauthor, Planetoid, Reddit
 from ogb.nodeproppred import PygNodePropPredDataset
 import torch_geometric.transforms as T
-import easygraph as eg
+import EasyGCN as eg
 # torch.set_num_threads(32)
 
 # -------------------- Setup --------------------
