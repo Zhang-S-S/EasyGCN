@@ -5,10 +5,8 @@ from EasyGCN.classes import *
 from EasyGCN.nn import *
 
 from EasyGCN.nn import GCNConv
-from EasyGCN.nn import GATConv
-from EasyGCN.nn import GraphSAGEConv
 
-__all__ = ['GCNConv','GATConv', 'GraphSAGEConv']
+__all__ = ['GCNConv']
 
 def __getattr__(name):
     print(f"attr {name} doesn't exist!")
