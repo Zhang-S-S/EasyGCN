@@ -22,8 +22,7 @@ except:
         " AllSetTransformer."
     )
 
-from .convs import GATConv
-from .convs import GCNConv
-from .convs import GraphSAGEConv
 
-__all__ = ['GCNConv', 'GATConv', 'GraphSAGEConv']
+from .convs import GCNConv
+
+__all__ = ['GCNConv']
